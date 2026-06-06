@@ -1,0 +1,59 @@
+class Jogo:
+    def __init__(self, codigo, nome , preco, estoque):
+        self.codigo = codigo
+        self.nome = nome
+        self.preco = preco
+        self.estoque = estoque
+
+class Cliente:
+    def __init__(self, nome, telefone, email):
+        self.nome = nome
+        self.telefone = telefone
+        self.email = email
+
+
+clientes = []
+
+jogos = []
+
+while True:
+    print("\n1 - Cadastrar Jogo")
+    print("2 - Cadastrar Cliente")
+    print("3 - Listar Clientes")
+    print("4 - Listar Jogos")
+    print("5 - Sair")
+
+    opcao = input("Escolha a opção: ")
+
+    if opcao == "1":
+        codigo = int(input("Digite o código do Jogo: "))
+        nome = input("Digite o nome do Jogo: ")
+        preco = float(input("Digite o preço: "))
+        estoque = int(input("Estoque: "))
+
+        jogo = Jogo(codigo, nome, preco, estoque)
+        jogos.append(jogo)
+
+        print("\nJogo Cadastrado")
+
+    elif opcao == "2":
+        nome = input("Digite o nome do cliente: ")
+        telefone = int(input("Digite o número de telefone: "))
+        email = input("Digite o e-mail do cliente: ")
+
+        cliente = Cliente(nome, telefone, email)
+        clientes.append(cliente)
+
+        print("\nCliente Cadastrado")
+    
+    elif opcao == "3":
+        for cliente in clientes:
+            print(f"{cliente.nome} - {cliente.telefone}")
+
+    elif opcao == "4":
+        for jogo in jogos:
+            print(f"{jogo.codigo} - {jogo.nome} - {jogo.preco}")
+
+    elif opcao == "5":
+        break
+
